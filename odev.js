@@ -70,3 +70,18 @@ alertBigger100.addEventListener("click", () => {
     new Toast("No");
   };
 });
+
+// Select City
+const cities = data.map(cityName => cityName.name);
+const choosing = document.querySelector("#custom-select");
+cities.forEach(element => {
+  const option = document.createElement("option");
+  option.setAttribute("value", element);
+  option.textContent = element;
+  choosing.appendChild(option);
+});
+
+choosing.addEventListener("change", (option) => {
+  const selectCities = data.filter(cities => option.target.value === cities.name);
+  createTableElements(selectCities, "singlecity");
+});
