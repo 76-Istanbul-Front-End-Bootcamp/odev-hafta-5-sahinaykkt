@@ -54,9 +54,9 @@ const alertLess100 = document.querySelector("#isPopulationLess");
 alertLess100.addEventListener("click", () => {
   const less100 = data.filter(cities => cities.population < 100000);
   if (less100.length > 0) {
-    return new Toast("Yes");
+    new Toast("Yes");
   } else {
-    return new Toast("No");
+    new Toast("No");
   };
 });
 
@@ -65,8 +65,8 @@ const alertBigger100 = document.querySelector("#isLandBigger");
 alertBigger100.addEventListener("click", () => {
   const bigger100 = data.filter(cities => cities.landArea > 100);
   if (bigger100.length > 0) {
-    return new Toast("Yes");
+    new Toast("Yes");
   } else {
-    return new Toast("No");
+    new Toast("No");
   };
 });
