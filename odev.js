@@ -52,19 +52,19 @@ lessButton.addEventListener("click", () => {
 // Does any city has population less than 100.000?
 const alertLess100 = document.querySelector("#isPopulationLess");
 alertLess100.addEventListener("click", () => {
-  const less100 = data.filter(cities => cities.population < 100000);
-  if (less100.length > 0) {
+  const less100 = data.some(cities => cities.population < 100000);
+  if (less100) {
     new Toast("Yes");
   } else {
     new Toast("No");
   };
 });
 
-// Does any city has land area bigger than 100?
+// Does every city has land area bigger than 100?
 const alertBigger100 = document.querySelector("#isLandBigger");
 alertBigger100.addEventListener("click", () => {
-  const bigger100 = data.filter(cities => cities.landArea > 100);
-  if (bigger100.length > 0) {
+  const bigger100 = data.every(cities => cities.landArea > 100);
+  if (bigger100) {
     new Toast("Yes");
   } else {
     new Toast("No");
@@ -81,7 +81,7 @@ cities.forEach(element => {
   choosing.appendChild(option);
 });
 
-choosing.addEventListener("change", (option) => {
-  const selectCities = data.filter(cities => option.target.value === cities.name);
+choosing.addEventListener("change", (e) => {
+  const selectCities = data.filter(cities => e.target.value === cities.name);
   createTableElements(selectCities, "singlecity");
 });
